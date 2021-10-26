@@ -1,5 +1,5 @@
 ## ✍️ [위코드 x 원티드] 백엔드 프리온보딩 선발 과제: 게시판 CRUD API
-#### Django 활용한 질문, 댓글, 좋아요 기능 구현
+#### 글 작성, 글 확인, 글 목록 확인, 글 수정, 글 삭제가 되는 API
 #### Contact: 박은혜, ehye0922@gmail.com, 010-5158-4536
 
 #### 📌 URL
@@ -46,17 +46,17 @@ $ sqlite3 db.sqlite3
 $ http GET 127.0.0.1:8000/postings/list?pagination=0&limit=3
 
 #### * Success Response:
-* Code: 200 "Message": [{"posting_id": 1, "posting_title": "django"},....]
+* Code: 200 {"Message": [{"posting_id": 1, "posting_title": "django"},....]}
   
 #### * Error Response:
-* Code: 400 KeyError Content: { 'Message': 'Key_Error' }
+* Code: 400 KeyError Content: {'Message': 'Key_Error'}
 
 #### 📌 과제 설명
 📕 Postings app
 
 * PostingDetailView
 1. decorator를 통해 기본적으로 로그인 한 유저만 게시물을 등록, 수정, 삭제할 수 있도록 하였습니다.
-2. 특정 게시물을 조회가능하며, 게시물 조회의 경우에는 데코레이터의 유무를 프론트단과의 협의를 통해 로그인하지 않은 유저도 게시물을 조회할 수 있도록 수정할 수 있습니다.
+2. 특정 게시물을 조회가능하며, 프론트단과의 협의를 통해 로그인하지 않은 유저도 게시물을 조회할 수 있도록 구현 할 수 있습니다.
 3. 게시물 수정과 삭제의 경우, 해당 게시물 작성자를 확인한 후 그 작성자만이 수정과 삭제가 가능하도록 구현했습니다.
 
 * PostingListView
