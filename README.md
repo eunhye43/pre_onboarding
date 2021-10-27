@@ -54,15 +54,15 @@ $ sqlite3 db.sqlite3
 * Sample Call:
 $ http POST 127.0.0.1:8000/postings title='test1', content='test1'
 * Success Response:
-- Code: 200 {"Message": "Success"}
+Code: 200 {"Message": "Success"}
 * Error Response:
-- Code: 400 KeyError Content: {"Message": "Key_Error"}
+Code: 400 KeyError Content: {"Message": "Key_Error"}
 
 2. 게시물 조회
 * Sample Call:
 $ http POST 127.0.0.1:8000/postings/1
 * Success Response:
-- Code: 201 "Message": {"user_id": 1,
+Code: 201 "Message": {"user_id": 1,
 "user_name": "강민지",
 "posting_id": 1,
 "posting_title": "django",
@@ -70,39 +70,37 @@ $ http POST 127.0.0.1:8000/postings/1
 "created_at": "2021-10-26T04:33:54.408Z",
 "updated_at": "2021-10-26T04:33:54.408Z"}
 * Error Response:
-- Code: 404 KeyError Content: {"Message": "Does_Not_Exist_Error"}
+Code: 404 KeyError Content: {"Message": "Does_Not_Exist_Error"}
 
 3. 게시물 수정
 * Sample Call:
 $ http PATCH 127.0.0.1:8000/postings/22 title='test12', content='test12'
 * Success Response:
-- Code: 201 {"Message": "Success!"}
+Code: 201 {"Message": "Success!"}
 * Error Response:
-- Code: 401 KeyError Content: {"Message": "Unauthorized_User"}
-- Code: 404 KeyError Content: {"Message": "Not_Existed_Error"}
-- Code: 400 KeyError Content: {"Message": "Key_Error"}
+Code: 401 KeyError Content: {"Message": "Unauthorized_User"}
+Code: 404 KeyError Content: {"Message": "Not_Existed_Error"}
+Code: 400 KeyError Content: {"Message": "Key_Error"}
 
 4. 게시물 삭제
 * Sample Call:
 $ http DELETE 127.0.0.1:8000/postings/22
 * Success Response:
-- Code: 200 {"Message": "Success!"}
+Code: 200 {"Message": "Success!"}
 * Error Response:
-- Code: 401 KeyError Content: {"Message": "Unauthorized_User"}
-- Code: 404 KeyError Content: {"Message": "Not_Existed_Error"}
+Code: 401 KeyError Content: {"Message": "Unauthorized_User"}
+Code: 404 KeyError Content: {"Message": "Not_Existed_Error"}
 
 5. 게시물 목록 조회
 * Sample Call:
 $ http GET 127.0.0.1:8000/postings/list?pagination=4&offset=0
 * Success Response:
-- Code: 200 {"Message": [{"posting_id": 14, "posting_title": "content21"},
-    
+Code: 200 {"Message": [{"posting_id": 14, "posting_title": "content21"},
     {"posting_id": 15, "posting_title": "content_test"},
-    
     {"posting_id": 16, "posting_title": "content_test"}]}
     
 * Error Response:
-- Code: 400 KeyError Content: {"Message": "Key_Error"}
+Code: 400 KeyError Content: {"Message": "Key_Error"}
 
 📕 Users app
 
@@ -110,23 +108,23 @@ $ http GET 127.0.0.1:8000/postings/list?pagination=4&offset=0
 * Sample Call:
 $ http POST 127.0.0.1:8000/users/signup name="가나다" email="test123456@gmail.com", password="test123456@@@@"
 * Success Response:
-- Code: 201 {"Message": "Success"}
+Code: 201 {"Message": "Success"}
 * Error Response:
-- Code: 400 KeyError Content: {"Message": "Key_Error"}
-  Code: 400 KeyError Content: {"Message": "Invalid_Password"}
-  Code: 400 KeyError Content: {"Message" : "Invalid_Email"}
+Code: 400 KeyError Content: {"Message": "Key_Error"}
+Code: 400 KeyError Content: {"Message": "Invalid_Password"}
+Code: 400 KeyError Content: {"Message" : "Invalid_Email"}
 
 2.로그인
 * Sample Call:
 $ http POST 127.0.0.1:8000/users/signin name="가나다" email="test123456@gmail.com", password="test123456@@@@"
 * Success Response:
-- Code: 201 {"Access_Token": <access_token>}
+Code: 201 {"Access_Token": <access_token>}
 * Error Response:
-- Code: 400 KeyError Content: {"Message": "Invalid_Token"}
-- Code: 401 KeyError Content: {"Message": "Invalid_User"}
-- Code: 400 KeyError Content: {"Message": "Key_Error"}
-- Code: 400 KeyError Content: {"Message": "Decode_Error"}
-- Code: 404 KeyError Content: {"Message": "Not_Found_Error"}
+Code: 400 KeyError Content: {"Message": "Invalid_Token"}
+Code: 401 KeyError Content: {"Message": "Invalid_User"}
+Code: 400 KeyError Content: {"Message": "Key_Error"}
+Code: 400 KeyError Content: {"Message": "Decode_Error"}
+Code: 404 KeyError Content: {"Message": "Not_Found_Error"}
 
 ### 📌 과제 설명
 
