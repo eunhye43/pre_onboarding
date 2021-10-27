@@ -52,15 +52,13 @@ $ sqlite3 db.sqlite3
 (token은 헤더에 포함되어 있다는 가정)
 
 1. 게시물 등록
-
-✔️ Sample Call:
-$ http POST 127.0.0.1:8000/postings title='test1', content='test1'
-
-✔️ Success Response:
-* Code: 200 {"Message": "Success"}
-
-✔️ Error Response:
-* Code: 400 KeyError Content: {"Message": "Key_Error"}
+```
+* Sample Call:
+  $ http POST 127.0.0.1:8000/postings title='test1', content='test1'
+* Success Response: Code: 200 {"Message": "Success"}
+* Error Response:
+  Code: 400 KeyError Content: {"Message": "Key_Error"}
+```
 
 2. 게시물 조회
 
