@@ -70,12 +70,12 @@ $ http POST 127.0.0.1:8000/postings/1
 ✔️ Success Response:
 
 * Code: 201 "Message": {"user_id": 1,
-"user_name": "강민지",
-"posting_id": 1,
-"posting_title": "django",
-"posting_content": "장고는 프레임워크? 라이브러리?",
-"created_at": "2021-10-26T04:33:54.408Z",
-"updated_at": "2021-10-26T04:33:54.408Z"}
+                      "user_name": "강민지",
+                     "posting_id": 1,
+                  "posting_title": "django",
+                "posting_content": "장고는 프레임워크? 라이브러리?",
+                     "created_at": "2021-10-26T04:33:54.408Z",
+                     "updated_at": "2021-10-26T04:33:54.408Z"}
 
 ✔️ Error Response:
 * Code: 404 KeyError Content: {"Message": "Does_Not_Exist_Error"}
@@ -112,8 +112,8 @@ $ http GET 127.0.0.1:8000/postings/list?pagination=4&offset=0
 
 ✔️ Success Response:
 * Code: 200 {"Message": [{"posting_id": 14, "posting_title": "content21"},
-    {"posting_id": 15, "posting_title": "content_test"},
-    {"posting_id": 16, "posting_title": "content_test"}]}
+            {"posting_id": 15, "posting_title": "content_test"},
+            {"posting_id": 16, "posting_title": "content_test"}]}
     
 ✔️ Error Response:
 * Code: 400 KeyError Content: {"Message": "Key_Error"}
@@ -138,7 +138,7 @@ $ http POST 127.0.0.1:8000/users/signup name="가나다" email="test123456@gmail
 ✔️ Sample Call:
 $ http POST 127.0.0.1:8000/users/signin name="가나다" email="test123456@gmail.com", password="test123456@@@@"
 
-✔️ Success Response:
+✔ Success Response:
 * Code: 201 {"Access_Token": <access_token>}
 
 ✔️ Error Response:
@@ -171,4 +171,4 @@ $ http POST 127.0.0.1:8000/users/signin name="가나다" email="test123456@gmail
 1. 비밀번호 확인 후 db에 있는 사용자 정보와 일치하면 엑세스 토큰을 발행하였습니다.
 
 ✔️ decorator([utils.py](http://utils.py/))
-2. 로그인시 header에 담겨 받은 Authorization의 value값인 access_token을 확인한 후 복호화하여 user 정보를 확인하는 로직을 구현했습니다.
+1. 로그인시 header에 담겨 받은 Authorization의 value값인 access_token을 확인한 후 복호화하여 user 정보를 확인하는 로직을 구현했습니다.
