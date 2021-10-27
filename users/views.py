@@ -2,7 +2,6 @@ import json
 import bcrypt
 import jwt
 import re
-import datetime
 
 from django.views         import View
 from django.http          import JsonResponse
@@ -23,7 +22,7 @@ class SignUpView(View):
             password_validation = re.compile('^(?=.*[a-z])(?=.*[0-9]).{8,}', re.I)
 
             if not email_validation.match(email):
-                return JsonResponse({'Message' : 'Invalid_Email'}, status=400)
+                return JsonResponse({'Message': 'Invalid_Email'}, status=400)
 
             if not password_validation.match(password):
                 return JsonResponse({'Message': 'Invalid_Password'}, status=400)
@@ -51,15 +50,15 @@ class SignInView(View):
             if not bcrypt.checkpw(data['password'].encode('utf-8'), hashed_password):
                 return JsonResponse({'Message': 'Invalid_User'}, status=401)
             
-            Access_Token = jwt.encode({'id' : user.id}, SECRET_KEY, algorithm = ALGORITHM)
+            Access_Token = jwt.encode({'id': user.id}, SECRET_KEY, algorithm = ALGORITHM)
 
             return JsonResponse({'Access_Token': Access_Token}, status=200)
         
         except json.JSONDecodeError:
-            return JsonResponse({'Message': 'Key_Error'}, status=404)
+            return JsonResponse({'Message': 'Decode_Error'}, status=400)
         
         except User.DoesNotExist:
-            return JsonResponse({'Message': 'Invalid_User'}, status=401)
+            return JsonResponse({'Message': 'Not_Found_Error'}, status=404)
         
         except KeyError:
             return JsonResponse({'Message': 'Key_Error'}, status=400)

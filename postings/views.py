@@ -1,9 +1,5 @@
 import json
 
-from datetime import date
-
-from django.db.models import Q
-from django.db.models import Count
 from django.http      import JsonResponse
 from django.views     import View
 
@@ -44,7 +40,7 @@ class PostingDetailView(View):
             return JsonResponse({'Message': posting_info}, status=200)
 
         except Posting.DoesNotExist:
-            return JsonResponse({'Message': 'Does_Not_Exist_Error'}, status=400)
+            return JsonResponse({'Message': 'Does_Not_Exist_Error'}, status=404)
     
     @login_required
     def patch(self, request, posting_id):
@@ -84,20 +80,24 @@ class PostingDetailView(View):
             return JsonResponse({'Message': 'Success!'}, status=200)
         
         except Posting.DoesNotExist:
-            return JsonResponse({'Message': 'Not_Existed_Error'}, status=400)
+            return JsonResponse({'Message': 'Not_Existed_Error'}, status=404)
 
 class PostinglistView(View):
     def get(self, request):
-        pagination        = int(request.GET.get('pagination', 0))
-        limit             = int(request.GET.get('limit', 3))
-        offset            = pagination * 3
-        
-        posts = Posting.objects.all()[offset:offset+limit]
-        post_title_info = [
-            {   
-                "posting_id"       : post.id,
-                "posting_title"    : post.title,
-            } 
-            for post in posts]
+        try:
+            pagination        = int(request.GET.get('pagination', 0))
+            limit             = int(request.GET.get('limit', 3))
+            offset            = pagination * 3
+            
+            posts = Posting.objects.all()[offset:offset+limit]
+            post_title_info = [
+                {   
+                    "posting_id"       : post.id,
+                    "posting_title"    : post.title,
+                } 
+                for post in posts]
 
-        return JsonResponse({'Message': post_title_info}, status=200)
+            return JsonResponse({'Message': post_title_info}, status=200)
+
+        except KeyError:
+            return JsonResponse({'Message': 'Key_Error'}, status=400)
