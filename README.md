@@ -53,8 +53,7 @@ $ sqlite3 db.sqlite3
 
 1. 게시물 등록
 ```
-* Sample Call:
-  $ http POST 127.0.0.1:8000/postings title='test1', content='test1'
+* Sample Call: $ http POST 127.0.0.1:8000/postings title='test1', content='test1'
 * Success Response: Code: 200 {"Message": "Success"}
 * Error Response:
   Code: 400 KeyError Content: {"Message": "Key_Error"}
@@ -62,24 +61,16 @@ $ sqlite3 db.sqlite3
 
 2. 게시물 조회
 ```
-* Sample Call:
-  $ http POST 127.0.0.1:8000/postings/1
+* Sample Call: $ http POST 127.0.0.1:8000/postings/1
 * Success Response:
-  Code: 201 "Message": {"user_id": 1,
-					  "user_name": "강민지",
-					 "posting_id": 1,
-				  "posting_title": "django",
-                "posting_content": "장고는 프레임워크? 라이브러리?",
-                     "created_at": "2021-10-26T04:33:54.408Z",
-                     "updated_at": "2021-10-26T04:33:54.408Z"}
+  Code: 201 "Message": {"user_id": 1, "user_name": "강민지", "posting_id": 1, "posting_title": "django", "posting_content": "장고는 프레임워크? 라이브러리?", "created_at": "2021-10-26T04:33:54.408Z", "updated_at": "2021-10-26T04:33:54.408Z"}
 * Error Response:
   Code: 404 KeyError Content: {"Message": "Does_Not_Exist_Error"}
 ```
 
 3. 게시물 수정
 ```
-* Sample Call:
-  $ http PATCH 127.0.0.1:8000/postings/22 title='test12', content='test12'
+* Sample Call: $ http PATCH 127.0.0.1:8000/postings/22 title='test12', content='test12'
 * Success Response:
   Code: 201 {"Message": "Success!"}
 * Error Response:
@@ -90,8 +81,7 @@ $ sqlite3 db.sqlite3
 
 4. 게시물 삭제
 ```
-* Sample Call:
-  $ http DELETE 127.0.0.1:8000/postings/22
+* Sample Call: $ http DELETE 127.0.0.1:8000/postings/22
 * Success Response:
   Code: 200 {"Message": "Success!"}
 * Error Response:
@@ -101,12 +91,9 @@ $ sqlite3 db.sqlite3
 
 5. 게시물 목록 조회
 ```
-* Sample Call:
-  $ http GET 127.0.0.1:8000/postings/list?pagination=4&offset=0
+* Sample Call: $ http GET 127.0.0.1:8000/postings/list?pagination=4&offset=0
 * Success Response:
-  Code: 200 {"Message": [{"posting_id": 14, "posting_title": "content21"},
-    {"posting_id": 15, "posting_title": "content_test"},
-    {"posting_id": 16, "posting_title": "content_test"}]}    
+  Code: 200 {"Message": [{"posting_id": 14, "posting_title": "content21"}, "...", "..."}]}    
 * Error Response:
   Code: 400 KeyError Content: {"Message": "Key_Error"}
 ```
@@ -115,8 +102,7 @@ $ sqlite3 db.sqlite3
 
 1.회원가입
 ```
-* Sample Call:
-  $ http POST 127.0.0.1:8000/users/signup name="가나다" email="test123456@gmail.com", password="test123456@@@@"
+* Sample Call: $ http POST 127.0.0.1:8000/users/signup name="가나다" email="test123456@gmail.com", password="test123456@@@@"
 * Success Response:
   Code: 201 {"Message": "Success"}
 * Error Response:
@@ -127,8 +113,7 @@ $ sqlite3 db.sqlite3
 
 2.로그인
 ```
-* Sample Call:
-  $ http POST 127.0.0.1:8000/users/signin name="가나다" email="test123456@gmail.com", password="test123456@@@@"
+* Sample Call: $ http POST 127.0.0.1:8000/users/signin name="가나다" email="test123456@gmail.com", password="test123456@@@@"
 * Success Response:
   Code: 201 {"Access_Token": <access_token>}
 * Error Response:
