@@ -92,8 +92,8 @@ class PostinglistView(View):
             posts = Posting.objects.all()[offset:offset+limit]
             post_title_info = [
                 {   
-                    "posting_id"       : post.id,
-                    "posting_title"    : post.title,
+                    "posting_id"   : post.id,
+                    "posting_title": post.title,
                 } 
                 for post in posts]
 
